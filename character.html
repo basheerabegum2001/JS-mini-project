@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter</title>
+</head>
+<style>
+    body{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 40px;
+    }
+    textarea{
+    width: 300px;
+    height: 120px;
+    font-size: 16px;
+    padding: 10px;
+    }
+</style>
+<body>
+    <h2>Character Counter</h2>
+    <textarea id="inputText" placeholder="Type something..." onkeyup="countCharacters()"></textarea>
+    <p>Characters: <span id="count">0</span></p>
+
+    <script>
+        function countCharacters() {
+           let text = document.getElementById("inputText").value;
+           document.getElementById("count").innerText = text.length;
+        }
+    </script>
+</body>
+</html>
