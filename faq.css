@@ -1,0 +1,32 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+    padding: 40px;
+}
+.title{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.faq-container{
+    max-width: 600px;
+    margin: auto;
+}
+.faq{
+    background: white;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.question{
+    font-size: 18px;
+}
+.answer{
+    margin-top: 10px;
+    line-height: 1.6;
+    display: none;
+}
+.faq.active .answer{
+    display: block;
+}
