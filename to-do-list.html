@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-DO -List</title>
+</head>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        padding: 30px;
+    }
+    .container{
+        width: 350px;
+        margin: auto;
+        background: #f4f4f4;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    input{
+        width: 80%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: 1px solid gray;
+    }
+    button{
+        padding: 10px 15px;
+        margin-left: 5px;
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+    li{
+        background: white;
+        padding: 8px 0;
+        padding: 12px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-size: 18px;
+    }
+    li.done{
+        text-decoration: line-through;
+        color: gray;
+    }
+    .delete{
+        background: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <h2>To-Do-List</h2>
+    <div class="container">
+        <input type="text" id="inputTask" placeholder="Enter task"><br><br>
+        <button onclick="addTask()">Add</button>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        function addTask() {
+            let task = document.getElementById("inputTask").value.trim();
+            if(task === "") return;
+
+            let ul = document.getElementById("taskList");
+            let li = document.createElement("li");
+
+            li.innerHTML = `<span class="taskText">${task}</span>
+                            <button class="delete">X</button>`;
+
+            ul.appendChild(li);
+            document.getElementById("inputTask").value ="";
+
+            //mark as done
+            li.addEventListener("click", function(e) {
+                if(e.target.classList.contains("delete")) return; //avoid toggle when clicking delete
+                li.classList.toggle("done");
+            });
+
+            //delete
+            li.querySelector(".delete").addEventListener("click", function() {
+                li.remove();
+            });
+        }
+    </script>
+</body>
+</html>

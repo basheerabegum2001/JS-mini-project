@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Search Filter</title>
+</head>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 40px;
+        text-align: center;
+    }
+    #search{
+        width: 60%;
+        padding: 12px;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+    li{
+        padding: 10px;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <h1>Live Search Filter</h1>
+    <input type="text" id="search" placeholder="Search items">
+    <ul id="items">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Orange</li>
+        <li>Mango</li>
+        <li>Grapes</li>
+        <li>Pineapple</li>
+        <li>Strawberry</li>
+        <li>Watermelon</li>
+    </ul>
+    <script>
+        const search = document.getElementById("search");
+        const items = document.querySelectorAll("#items li");
+
+        search.addEventListener("input", () => {
+            let text = search.value.toLowerCase();
+
+            items.forEach(item => {
+                let itemName = item.textContent.toLowerCase();
+                    if(itemName.includes(text)) {
+                        item.style.display = "block";
+                    } else {
+                        item.style.display ="none";
+                    }
+            });
+        });
+    </script>
+</body>
+</html>
